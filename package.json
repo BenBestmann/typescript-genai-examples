@@ -1,0 +1,36 @@
+{
+  "name": "typescript-genai-examples",
+  "version": "1.0.0",
+  "description": "Explore GenAI patterns through practical TypeScript examples - from simple prompts to RAG and agentic workflows.",
+  "main": "index.js",
+  "author": "Benjamin Bestmann",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "tsx src/simple-prompt.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^2.0.17",
+    "@genkit-ai/compat-oai": "^1.20.0",
+    "@genkit-ai/google-genai": "^1.20.0",
+    "@langchain/core": "^0.3.78",
+    "@langchain/google-genai": "^0.2.18",
+    "ai": "^5.0.60",
+    "dotenv": "^17.2.3",
+    "genkit": "^1.20.0",
+    "langchain": "^0.3.35",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://BenBestmann@github.com/BenBestmann/typescript-genai-examples.git"
+  }
+}
