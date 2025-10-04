@@ -7,6 +7,8 @@ async function main() {
   const ai = new ChatGoogleGenerativeAI({
     model: 'gemini-2.5-flash',
     apiKey: process.env.GEMINI_API_KEY,
+    maxOutputTokens: 200,
+    temperature: 0.8,
   });
 
   const messages = [
@@ -16,6 +18,7 @@ async function main() {
     new HumanMessage('What is a prompt?'),
   ];
 
+  // See: https://js.langchain.com/docs/tutorials/llm_chain
   const response = await ai.invoke(messages);
 
   console.log(response.content);
