@@ -5,12 +5,12 @@ import { generateObject } from 'ai';
 import { handleError } from '../utils';
 import { SupportTicketSchema } from './ticket.schema';
 
+// See: https://ai-sdk.dev/docs/ai-sdk-core/generating-structured-data
 async function main() {
   const google = createGoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
 
   const emailInput = fs.readFileSync('src/structured-output/unstructured-input.txt', 'utf8');
 
-  // See: https://ai-sdk.dev/docs/ai-sdk-core/generating-structured-data
   const response = await generateObject({
     model: google('gemini-2.5-flash'),
     schema: SupportTicketSchema,

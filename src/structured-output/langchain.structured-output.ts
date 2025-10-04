@@ -4,8 +4,8 @@ import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
 import { HumanMessage, SystemMessage } from '@langchain/core/messages';
 import { handleError } from '../utils';
 import { SupportTicketSchema } from './ticket.schema';
-import { tool } from '@langchain/core/tools';
 
+// See: https://js.langchain.com/docs/concepts/structured_outputs/
 async function main() {
   const model = new ChatGoogleGenerativeAI({
     model: 'gemini-2.5-flash',
@@ -13,7 +13,6 @@ async function main() {
     temperature: 0.8,
   });
 
-  // See: https://js.langchain.com/docs/concepts/structured_outputs/
   const modelWithStructuredOutput = model.withStructuredOutput(SupportTicketSchema);
   const emailInput = fs.readFileSync('src/structured-output/unstructured-input.txt', 'utf8');
 

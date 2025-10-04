@@ -3,11 +3,11 @@ import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
 import { HumanMessage, SystemMessage } from '@langchain/core/messages';
 import { handleError } from '../utils';
 
+// See: https://js.langchain.com/docs/tutorials/llm_chain
 async function main() {
-  const ai = new ChatGoogleGenerativeAI({
+  const model = new ChatGoogleGenerativeAI({
     model: 'gemini-2.5-flash',
     apiKey: process.env.GEMINI_API_KEY,
-    maxOutputTokens: 200,
     temperature: 0.8,
   });
 
@@ -18,8 +18,7 @@ async function main() {
     new HumanMessage('What is a prompt?'),
   ];
 
-  // See: https://js.langchain.com/docs/tutorials/llm_chain
-  const response = await ai.invoke(messages);
+  const response = await model.invoke(messages);
 
   console.log(response.content);
 }
